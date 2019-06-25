@@ -1,0 +1,74 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Messaging.Actors\\wkn.Evet.Messaging.Actors.csproj",
+    "projectName": "wkn.Evet.Messaging.Actors",
+    "projectPath": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Messaging.Actors\\wkn.Evet.Messaging.Actors.csproj",
+    "outputPath": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Messaging.Actors\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp2.2"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp2.2": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Akka": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Akka.Cluster": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Akka.DI.AutoFac": {
+          "target": "Package",
+          "version": "[1.3.9, )"
+        },
+        "Akka.DI.Core": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Akka.Persistence": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Akka.Remote": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Akka.TestKit.Xunit": {
+          "target": "Package",
+          "version": "[1.3.13, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

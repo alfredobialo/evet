@@ -16,4 +16,9 @@
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="4.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Model\CrmModule" />
+      <Folder Include="Model\InventoryModule" />
+    </ItemGroup>
+
 </Project>

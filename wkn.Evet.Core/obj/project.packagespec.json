@@ -17,7 +17,11 @@
     },
     "frameworks": {
       "netcoreapp2.2": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Abstractions\\wkn.Evet.Abstractions.csproj": {
+            "projectPath": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Abstractions\\wkn.Evet.Abstractions.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

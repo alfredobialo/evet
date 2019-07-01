@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,23 @@ namespace wkn.Evet.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opts =>
+            {
+                opts.AddPolicy("angularSpa" , builder =>
+                {
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                });
+                
+            });
+           
+            services.AddAuthentication(opt =>
+                {
+                    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    opt.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -42,6 +60,8 @@ namespace wkn.Evet.WebApi
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("angularSpa");
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace wkn.Evet.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("/")]
     [ApiController]
     public class ValuesController : ControllerBase
     {

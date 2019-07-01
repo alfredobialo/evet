@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "Autofac/4.9.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.dll": {}
+        }
+      },
       "Microsoft.CodeCoverage/16.0.1": {
         "type": "package",
         "compile": {
@@ -1675,10 +1684,54 @@
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "wkn.Evet.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/wkn.Evet.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/wkn.Evet.Abstractions.dll": {}
+        }
+      },
+      "wkn.Evet.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Autofac": "4.9.2",
+          "wkn.Evet.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/wkn.Evet.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/wkn.Evet.Core.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "Autofac/4.9.2": {
+      "sha512": "1MrHauRcpaPW3CpVYIhQey8o9vodRool0XfK7QcUu8v2SgQVYF/uzUILF/Lwgx8qvkY5DycyWEDj1WYNsDNcDA==",
+      "type": "package",
+      "path": "autofac/4.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "autofac.4.9.2.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.pdb",
+        "lib/net45/Autofac.xml",
+        "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.pdb",
+        "lib/netstandard1.1/Autofac.xml",
+        "lib/netstandard2.0/Autofac.dll",
+        "lib/netstandard2.0/Autofac.pdb",
+        "lib/netstandard2.0/Autofac.xml"
+      ]
+    },
     "Microsoft.CodeCoverage/16.0.1": {
       "sha512": "HEdO9Lyje8ehjMU985e6vZFETAv337R7wukZXng35hhVdTDoSs3OLC/h5guQWhdDyQ+cN9uKUTK3H1GUKTjrYA==",
       "type": "package",
@@ -5847,12 +5900,23 @@
         "xunit.runner.visualstudio.2.4.0.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "wkn.Evet.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../wkn.Evet.Abstractions/wkn.Evet.Abstractions.csproj",
+      "msbuildProject": "../wkn.Evet.Abstractions/wkn.Evet.Abstractions.csproj"
+    },
+    "wkn.Evet.Core/1.0.0": {
+      "type": "project",
+      "path": "../wkn.Evet.Core/wkn.Evet.Core.csproj",
+      "msbuildProject": "../wkn.Evet.Core/wkn.Evet.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NET.Test.Sdk >= 16.0.1",
       "Microsoft.NETCore.App >= 2.2.0",
+      "wkn.Evet.Core >= 1.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
@@ -5884,7 +5948,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Core\\wkn.Evet.Core.csproj": {
+              "projectPath": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Core\\wkn.Evet.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

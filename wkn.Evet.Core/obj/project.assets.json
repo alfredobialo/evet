@@ -216,6 +216,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "wkn.Evet.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/wkn.Evet.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/wkn.Evet.Abstractions.dll": {}
+        }
       }
     }
   },
@@ -707,12 +717,18 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "wkn.Evet.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../wkn.Evet.Abstractions/wkn.Evet.Abstractions.csproj",
+      "msbuildProject": "../wkn.Evet.Abstractions/wkn.Evet.Abstractions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Autofac >= 4.9.2",
-      "Microsoft.NETCore.App >= 2.2.0"
+      "Microsoft.NETCore.App >= 2.2.0",
+      "wkn.Evet.Abstractions >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -742,7 +758,11 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Abstractions\\wkn.Evet.Abstractions.csproj": {
+              "projectPath": "C:\\asom_files\\appProjects\\backendApps\\dotNetCoreApps\\wkn.Evet\\wkn.Evet.Abstractions\\wkn.Evet.Abstractions.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,20 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.AccessControl;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using wkn.Evet.WebApi.Model;
+using wkn.Evet.WebApi.Model.Abstraction;
+using wkn.Evet.WebApi.Model.CrmModule;
 
 namespace wkn.Evet.WebApi.Controllers
 {
     [Route("/")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class RootApiController : BaseController
     {
         // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        [HttpGet(Name=nameof(Get))]
+        public IActionResult Get()
         {
-            return new string[] {"value1", "value2"};
+            
+            var res = new
+            {
+                crm  = Url.Link(nameof(CustomersController.GetCustomers), null),
+                auth = Url.Link(nameof(AuthController.GetUrls), null),
+                appName ="Business Application"
+            };
+
+            return Ok(res);
         }
 
         // GET api/values/5

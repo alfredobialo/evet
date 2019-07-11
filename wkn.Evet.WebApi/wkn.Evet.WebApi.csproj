@@ -17,7 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Model\CrmModule" />
       <Folder Include="Model\InventoryModule" />
     </ItemGroup>
 

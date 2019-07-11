@@ -202,14 +202,29 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="ApiRoot.cs" t="Include" />
+          <e p="AuthController.cs" t="Include" />
+          <e p="BaseController.cs" t="Include" />
+          <e p="CustomerController.cs" t="Include" />
+          <e p="RootApiController.cs" t="Include" />
         </e>
         <e p="Model" t="Include">
           <e p="Abstraction" t="Include">
             <e p="RestFulResource.cs" t="Include" />
           </e>
-          <e p="CrmModule" t="Include" />
+          <e p="ApiResponse.cs" t="Include" />
+          <e p="Auth" t="Include">
+            <e p="LoginModel.cs" t="Include" />
+          </e>
+          <e p="CrmModule" t="Include">
+            <e p="CustomerCompany.cs" t="Include" />
+            <e p="CustomerDetailsModel.cs" t="Include" />
+            <e p="CustomerModel.cs" t="Include" />
+            <e p="FakeCustomerRepository.cs" t="Include" />
+          </e>
           <e p="InventoryModule" t="Include" />
+          <e p="SalesModule" t="Include">
+            <e p="SalesTransactionHistory.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

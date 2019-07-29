@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using wkn.Evet.WebApi.Pipeline;
 
 namespace wkn.Evet.WebApi
 {
@@ -31,41 +35,43 @@ namespace wkn.Evet.WebApi
             // Adding Swagger UI for API Docs
             services.AddSwaggerGen(config =>
             {
-                config.SwaggerDoc("EffectivErp", new Info()
+                
+                config.SwaggerDoc("EffectivErp", new OpenApiInfo()
                 {
-                    Description = "Effectiv ERP API Documentation",Title ="Effectiv ERP",
+                    Description = "Effectiv ERP API Documentation", Title = "Effectiv ERP",
                     Version = "1",
-                    License = new License()
+                    License = new OpenApiLicense
                     {
-                        Name = "Asom Services", 
-                        Url = "http://www.effectivonline.com"
+                        Name = "Asom Services",
+                        Url = new Uri("http://www.effectivonline.com")
                     }
                 });
-                
+               
             });
             services.AddCors(opts =>
             {
-                opts.AddPolicy("angularSpa" , builder =>
+                opts.AddPolicy("angularSpa", builder =>
                 {
                     builder.AllowAnyMethod();
                     builder.AllowAnyHeader();
                     builder.AllowAnyOrigin();
                     builder.Build();
                 });
-                
             });
-           
+
             services.AddAuthentication(opt =>
-                {
-                    opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                    opt.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                });
+            {
+                opt.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                opt.DefaultSignOutScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            });
             services.AddMvc(options =>
             {
                 // include options here
-            } ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                new MvcServicePipeline(options)
+                    .AddCsvOutputFormatters();
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddRouting(x => { x.LowercaseUrls = true; });
         }
 
@@ -82,19 +88,18 @@ namespace wkn.Evet.WebApi
                 app.UseHsts();
             }
 
-            app.UseSwaggerUI(opt =>
-            {
-                
-                /*opt.HeadContent = "Effectiv ERP";
-                opt.DocumentTitle = "Effectiv ERP Api Documentation";*/
-                
-                
-
-            });
             app.UseHttpsRedirection();
             app.UseCors("angularSpa");
+            app.UseSwagger(opt => { });
+            app.UseSwaggerUI(config =>
+            {
+                config.SwaggerEndpoint("/swagger/EffectivErp/swagger.json", "Effectiv Erp");
+                config.RoutePrefix = "";
+            });
+            
             app.UseAuthentication();
-            app.UseMvc();
+
+            app.UseMvc(opt => { opt.MapRoute(name: "default", template: "{controller=RootApi}/{id?}"); });
         }
     }
 }

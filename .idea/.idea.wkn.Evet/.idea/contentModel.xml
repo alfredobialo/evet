@@ -36,6 +36,9 @@
         <e p="Customer.cs" t="Include" />
         <e p="CustomerCommandRepo.cs" t="Include" />
         <e p="CustomerRepo.cs" t="Include" />
+        <e p="DiModule" t="Include">
+          <e p="CustomerDomainModule.cs" t="Include" />
+        </e>
         <e p="DiSetup.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -207,6 +210,10 @@
           <e p="CustomerController.cs" t="Include" />
           <e p="RootApiController.cs" t="Include" />
         </e>
+        <e p="Filters" t="Include" />
+        <e p="Formatters" t="Include">
+          <e p="CsvOutputFormatter.cs" t="Include" />
+        </e>
         <e p="Model" t="Include">
           <e p="Abstraction" t="Include">
             <e p="RestFulResource.cs" t="Include" />
@@ -232,6 +239,9 @@
               <e p="wkn.Evet.WebApi.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Pipeline" t="Include">
+          <e p="MvcServicePipeline.cs" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">

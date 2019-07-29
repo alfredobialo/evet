@@ -37,7 +37,7 @@ namespace wkn.Evet.WebApi.Controllers
             {
                 return Ok(res);
             }
-            return NotFoundMessage(values:new {id});
+            return NotFound();
         }
 
         

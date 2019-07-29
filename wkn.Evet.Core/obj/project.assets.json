@@ -217,6 +217,15 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "System.Linq.Dynamic/1.0.7": {
+        "type": "package",
+        "compile": {
+          "lib/net40/System.Linq.Dynamic.dll": {}
+        },
+        "runtime": {
+          "lib/net40/System.Linq.Dynamic.dll": {}
+        }
+      },
       "wkn.Evet.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
@@ -718,6 +727,19 @@
         "netstandard.library.nuspec"
       ]
     },
+    "System.Linq.Dynamic/1.0.7": {
+      "sha512": "xpnS9Q9upR9K3XKUhFW8f8emWi3+6yRyftCNht4dhB/P9YIYbeT+xn607kDK6vYCcSkl3wwKPEmfKTEyWZkBIg==",
+      "type": "package",
+      "path": "system.linq.dynamic/1.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGet.exe",
+        "lib/net40/System.Linq.Dynamic.dll",
+        "system.linq.dynamic.1.0.7.nupkg.sha512",
+        "system.linq.dynamic.nuspec"
+      ]
+    },
     "wkn.Evet.Abstractions/1.0.0": {
       "type": "project",
       "path": "../wkn.Evet.Abstractions/wkn.Evet.Abstractions.csproj",
@@ -728,6 +750,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Autofac >= 4.9.2",
       "Microsoft.NETCore.App >= 2.2.0",
+      "System.Linq.Dynamic >= 1.0.7",
       "wkn.Evet.Abstractions >= 1.0.0"
     ]
   },
@@ -785,6 +808,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "System.Linq.Dynamic": {
+            "target": "Package",
+            "version": "[1.0.7, )"
           }
         },
         "imports": [
@@ -794,5 +821,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Linq.Dynamic 1.0.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.2'. This package may not be fully compatible with your project.",
+      "libraryId": "System.Linq.Dynamic",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.2"
+      ]
+    }
+  ]
 }
